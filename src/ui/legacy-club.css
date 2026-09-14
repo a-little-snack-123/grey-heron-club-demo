@@ -1,0 +1,145 @@
+/* v3 §3 + supplied interaction demo A/B/E. Opt in with .club-ui:not(.club-stage3).
+   Old screens migrate by batch; this file never overrides their legacy .paper. */
+.club-ui:not(.club-stage3) {
+  --ink: #1b241e;
+  --wood: #2f2119;
+  --brass: #8c6b33;
+  --flame: #e8a33d;
+  --paper: #efe6d4;
+  --paper-light: #e9dfc8;
+  --paper-mid: #ded1b6;
+  --ink-deep: #30271b;
+  --ink-muted: #574831;
+  --seal: #7c2b26;
+  --warm: 232, 163, 61;
+  --glow-soft: 0 0 18px rgba(var(--warm), .28);
+  --glow-mid: 0 0 32px rgba(var(--warm), .45);
+  --glow-strong: 0 0 48px rgba(var(--warm), .65), 0 0 96px rgba(var(--warm), .26);
+  --paper-shadow: 10px 14px 28px rgb(0 0 0 / .55);
+  --fibres: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+  --font-body: 'Noto Serif SC', 'Songti SC', 'STSong', 'SimSun', serif;
+  --font-display: 'Cormorant Garamond', 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+  color: var(--paper);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+}
+.club-ui:not(.club-stage3), .club-ui:not(.club-stage3) * { box-sizing: border-box; }
+.club-ui:not(.club-stage3) button {
+  appearance: none;
+  -webkit-appearance: none;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.club-ui:not(.club-stage3) :is(h1,h2,h3,p) { margin: 0; }
+.club-ui:not(.club-stage3) h1 { font: 500 clamp(44px, 4vw, 64px)/1.15 var(--font-display); }
+.club-ui:not(.club-stage3) h2 { font-size: 28px; font-weight: 600; line-height: 1.25; }
+.club-ui:not(.club-stage3) .english { font: 17px/1.4 Georgia, serif; letter-spacing: .16em; }
+.club-ui:not(.club-stage3) .decor { pointer-events: none; }
+.club-ui:not(.club-stage3) .readonly { pointer-events: none; user-select: none; }
+
+/* Keep the shadow outside the ragged edge; only the nested physical face is clipped. */
+.club-ui:not(.club-stage3) .paper { --paper-angle: -.4deg; position: relative; isolation: isolate; transform: rotate(var(--paper-angle)); filter: drop-shadow(8px 12px 10px rgb(0 0 0 / .5)); }
+.club-ui:not(.club-stage3) .paper-face {
+  position: relative;
+  isolation: isolate;
+  height: 100%;
+  min-width: 0;
+  color: var(--ink-deep);
+  background:
+    radial-gradient(120% 100% at 12% 0%, rgb(255 246 225 / .10), transparent 55%),
+    linear-gradient(168deg, #e9dfc8 0%, #ded1b6 52%, #c8b898 100%);
+  border: 1px solid rgb(120 92 52 / .45);
+  border-radius: 3px;
+  box-shadow: inset 0 0 34px rgb(90 60 25 / .28), inset -3px -4px 8px rgb(70 45 22 / .18);
+  clip-path: polygon(.4% .5%, 19% .1%, 37% .5%, 62% .1%, 84% .5%, 99.4% .2%, 99.8% 24%, 99.4% 54%, 100% 81%, 99.4% 99.6%, 78% 100%, 52% 99.5%, 26% 100%, .3% 99.4%, 0 74%, .5% 43%, 0 18%);
+}
+.club-ui:not(.club-stage3) .paper-face::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: .22;
+  background-image: var(--fibres);
+  mix-blend-mode: multiply;
+}
+.club-ui:not(.club-stage3) .paper-content { padding: 24px; min-width: 0; }
+
+/* Never infer state from card position or focus. Hover is deliberately weaker. */
+.club-ui:not(.club-stage3) .selectable {
+  position: relative;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  text-align: left;
+  filter: brightness(.9);
+  transform: rotate(var(--paper-angle, -.4deg));
+  box-shadow: var(--paper-shadow);
+  transition: transform .18s cubic-bezier(.34,1.4,.64,1), box-shadow .18s ease, filter .18s ease;
+}
+.club-ui:not(.club-stage3) .selectable.is-dimmed { filter: brightness(.72) saturate(.9); }
+@media (hover: hover) {
+  .club-ui:not(.club-stage3) .selectable:not(.is-locked):not(.is-selected):hover {
+    transform: translateY(-6px) scale(1.02) rotate(var(--paper-angle, -.4deg));
+    filter: brightness(1);
+    box-shadow: var(--glow-soft), var(--paper-shadow);
+  }
+}
+.club-ui:not(.club-stage3) .selectable.is-selected {
+  transform: translateY(-14px) scale(1.065) rotate(var(--paper-angle, -.4deg));
+  filter: brightness(1.2) contrast(1.05);
+  box-shadow: var(--glow-strong), var(--paper-shadow);
+  border-color: var(--flame);
+  z-index: 3;
+}
+.club-ui:not(.club-stage3) .selectable.is-locked,
+.club-ui:not(.club-stage3) .selectable.is-locked:hover {
+  filter: brightness(.5) grayscale(.45);
+  transform: rotate(var(--paper-angle, -.4deg));
+  box-shadow: var(--paper-shadow);
+  cursor: not-allowed;
+}
+.club-ui:not(.club-stage3) .hit { position: relative; min-width: 44px; min-height: 44px; touch-action: manipulation; }
+.club-ui:not(.club-stage3) .hit:not(:disabled):active { transform: scale(.97) rotate(var(--paper-angle, 0deg)); }
+.club-ui:not(.club-stage3) .hit:focus-visible { outline: 2px solid rgb(var(--warm) / .8); outline-offset: 5px; }
+
+.club-ui:not(.club-stage3) .brass {
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font: 17px/1.4 var(--font-body);
+  letter-spacing: .12em;
+  white-space: nowrap;
+  color: var(--paper);
+  padding: 16px 30px;
+  min-height: 56px;
+  min-width: 160px;
+  background: var(--fibres), linear-gradient(#3d2d1d, #241a12);
+  background-blend-mode: soft-light, normal;
+  border: 1px solid rgb(140 107 51 / .8);
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgb(255 234 187 / .22), inset 0 0 22px rgb(var(--warm) / .16), 5px 7px 12px #0006, var(--glow-soft);
+  transition: transform .12s ease, box-shadow .18s ease, filter .18s ease;
+}
+.club-ui:not(.club-stage3) .brass::before, .club-ui:not(.club-stage3) .brass::after { content: ''; flex: 0 0 4px; height: 4px; border-radius: 50%; background: #b49a65; box-shadow: inset -1px -1px 1px #231709, 1px 2px 2px #0008; pointer-events: none; }
+.club-ui:not(.club-stage3) .brass:hover:not(:disabled) { box-shadow: inset 0 0 26px rgb(var(--warm) / .24), var(--glow-mid), 5px 8px 12px #0006; filter: brightness(1.08); }
+.club-ui:not(.club-stage3) .brass:disabled { filter: brightness(.55) grayscale(.4); cursor: not-allowed; }
+.club-ui:not(.club-stage3) .brass-secondary { box-shadow: inset 0 1px rgb(255 234 187 / .12), 5px 7px 12px #0006; }
+.club-ui:not(.club-stage3) .guide { animation: club-breathe 2.2s ease-in-out infinite; }
+.club-ui:not(.club-stage3) .guide.is-done { animation: none; opacity: 1; }
+@keyframes club-breathe {
+  0%,100% { opacity: .6; box-shadow: 0 0 10px rgb(var(--warm) / .25), 5px 7px 12px #0006; }
+  50% { opacity: 1; box-shadow: 0 0 34px rgb(var(--warm) / .60), 5px 7px 12px #0006; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .club-ui:not(.club-stage3) *, .club-ui:not(.club-stage3) *::before, .club-ui:not(.club-stage3) *::after { animation: none !important; transition: none !important; }
+}
+

@@ -1,0 +1,116 @@
+/* Three distinct rooms; keep live ink independent from painted scenery. */
+.start-scene,.round-lobby{height:100dvh;min-height:0;position:relative;overflow:hidden;color:#efe6d4}
+.start-scene{background-color:#101716;background-image:linear-gradient(90deg,#09120f88,transparent 55%),url('../../public/art/club-v7/entrance.webp');background-position:center;background-size:cover;background-repeat:no-repeat;display:flex;align-items:center;padding:8vh 7vw}
+.start-copy{width:380px;max-width:44%;padding:28px 0}
+.start-copy h1{font-size:48px;letter-spacing:.1em;line-height:1.3;margin:12px 0}
+.start-copy>small{font-size:15px;letter-spacing:.16em}
+.start-label{font-size:17px;margin:12px 0 28px;color:#efe6d4}
+.start-menu{display:flex;flex-direction:column;align-items:stretch;gap:8px;max-width:300px}
+.start-menu button{appearance:none;font:inherit;font-size:20px;text-align:left;min-height:48px;padding:8px 0;border:0;border-bottom:1px solid #c5ae7b55;background:none;color:#efe6d4;cursor:pointer}
+.start-menu .start-primary{font-size:26px;color:#efe6d4;margin-bottom:8px}
+.start-primary span{float:right}
+.start-menu button:hover{color:#f8e3b8;padding-left:6px}
+.start-menu button:active{transform:translateY(1px)}
+.start-footnote{font-size:14px;line-height:1.8;margin-top:28px}
+.app-shell:has(.start-scene)>.club-navigation{display:none!important}
+.app-shell:has(#main-content>.round-lobby)>.club-navigation{display:flex!important}
+.start-scene h1:focus,.round-lobby h1:focus{outline:none}
+.round-lobby{background-color:#1b241e;background-image:linear-gradient(#09110c55,#09110c55),url('../../public/art/club-v7/round-table.webp');background-position:center;background-size:100% 100%;background-repeat:no-repeat;display:grid;grid-template-rows:24% 28% 16% 1fr;padding:0 12vw}
+.round-heading{align-self:end;padding-bottom:12px;text-align:center}
+.round-heading h1{font-size:36px;line-height:1.2;margin:6px 0}
+.round-heading p{font-size:17px;margin:4px 0}
+.round-games{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:end;gap:24px;padding:0 4%;min-height:0}
+.game-prop{appearance:none;background:none;border:0;color:#efe6d4;font:inherit;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px;min-height:0;padding:0 8px}
+.game-prop img{display:block;width:100%;max-width:170px;height:130px;object-fit:contain;filter:drop-shadow(7px 10px 5px #000a);transition:filter .18s,translate .18s;pointer-events:none}
+.game-prop-blind img{max-width:120px}
+.game-prop-testimony img{max-width:115px}
+.game-prop-material{display:flex;align-items:end;justify-content:center;width:100%;height:130px;pointer-events:none}
+.game-prop .game-name{font-size:24px;border-bottom:1px solid #c5ae7b88;min-height:36px;line-height:1.4}
+.game-prop small{font-size:14px}
+.game-prop:hover img,.game-prop:focus-visible img{translate:0 -6px;scale:1.02;filter:brightness(1) drop-shadow(7px 15px 6px #000a) drop-shadow(0 0 18px #e8a33d47)}
+.game-prop[aria-pressed=true] img{translate:0 -14px;scale:1.065;filter:brightness(1.2) contrast(1.05) drop-shadow(7px 18px 8px #000b) drop-shadow(0 0 32px #e8a33d73)}
+.game-prop:focus-visible{outline:none;text-decoration:underline;text-underline-offset:6px}
+.game-prop:active img{translate:0 0;scale:.97}
+.lobby-introduction{align-self:center;justify-self:center;width:min(660px,100%);min-height:120px;text-align:center;padding:8px 16px}
+.lobby-introduction h2{font-size:24px;margin:0 0 4px}.lobby-introduction h2 small{font-size:14px;margin-left:16px}
+.lobby-introduction p{font-size:17px;line-height:1.5;margin:4px 0}
+.lobby-introduction button,.round-footer button{appearance:none;min-height:44px;font:inherit;font-size:17px;color:#efe6d4;background:none;border:0;border-bottom:1px solid #c5ae7b;padding:6px 10px;cursor:pointer}
+.lobby-introduction .opening-note{font-size:14px}
+.round-footer{align-self:end;display:flex;justify-content:space-between;padding-bottom:3vh}
+.club-stage3.object-scene{background-image:url('../../public/art/club-v7/writing-desk.webp');background-size:100% 125%;background-position:center top;--desk-surface-start:.17;--desk-surface-end:.94}
+.club-stage3.folio-scene{padding:17dvh 6vw 7dvh;gap:12px}
+.folio-scene .folio-heading{padding-left:20%}
+.folio-scene .folio-heading h1{font-size:32px}
+.folio-scene .folio-heading p{font-size:15px}
+.folio-scene .open-ledger{width:min(1120px,calc((76dvh - 82px)*1527/876))}
+.folio-members .open-ledger{width:min(1080px,calc((76dvh - 130px)*1527/876))}
+.folio-learning .open-ledger,.folio-reveal .open-ledger{width:min(1080px,calc((76dvh - 180px)*1527/876))}
+.folio-scene .book-spread{padding-top:calc(100% * 876 / 1527 * .09);padding-bottom:calc(100% * 876 / 1527 * .17)}
+.folio-scene .folio-leaf{height:100%;gap:4px;overflow:hidden}
+.page-viewport{flex:1;min-height:0;overflow:hidden;position:relative;width:100%}
+.page-flow{position:relative;height:100%;column-gap:32px;column-fill:auto;overflow:visible;word-break:normal;overflow-wrap:break-word}
+.page-flow>.leaf-section,.page-flow .leaf-section{display:contents}
+.page-flow details[open]{display:contents}.page-flow summary{break-inside:avoid;min-height:44px}
+.page-flow p,.page-flow li,.page-flow table,.page-flow nav,.page-flow .native-portrait{break-inside:avoid}
+.page-flow .folio-trial{display:block}.page-flow .folio-trial>*{margin-bottom:12px;break-inside:avoid}
+.page-flow h1,.page-flow h2,.page-flow h3{break-after:avoid;margin:0 0 12px!important}
+.page-flow h1{font-size:38px!important}
+.page-flow p{margin:0 0 14px!important;line-height:1.65!important}
+.page-flow ol{padding-left:20px;margin:10px 0}.page-flow li{margin:8px 0}
+.page-flow>.native-portrait{margin-bottom:12px}
+.page-flow .ink-tabs,.page-flow .folio-analysis-tabs{gap:0 14px;margin-bottom:12px}
+.page-flow .ink-tabs button,.page-flow .folio-analysis-tabs button{font-size:15px;min-height:38px}
+.paper-pagination{display:flex;justify-content:space-between;align-items:center;gap:4px;flex:none;border-top:1px solid #927b5866}
+.paper-pagination button{appearance:none;border:0;background:none;color:#30271b;font:inherit;font-size:15px;min-height:44px;padding:4px 0;cursor:pointer}
+.paper-pagination small{font-size:13px!important}.paper-pagination button:disabled{color:#776b58;cursor:default}
+.book-pagination{display:flex;align-items:center;justify-content:center;gap:20px;color:#efe6d4;margin-top:6px;min-height:44px}
+.book-pagination button{appearance:none;background:none;border:0;color:inherit;font:inherit;font-size:17px;padding:6px 12px;min-height:44px;cursor:pointer}
+.book-pagination button:disabled{opacity:.4;cursor:default}
+.rule-score-table{border-collapse:collapse;width:100%;margin:12px 0 20px;font-size:17px}
+.rule-score-table th,.rule-score-table td{border:0;border-bottom:1px solid #927b58;padding:9px 3px;color:#30271b;white-space:nowrap;background:none}
+.preparation-book .preparation-reading{display:grid;grid-template-columns:minmax(0,1fr) 280px;align-items:center;gap:22px;height:100%;min-height:0}
+.preparation-book .open-ledger{width:min(100%,calc((76dvh - 50px)*1527/876));margin:0}
+.preparation-book .page-flow p{margin-bottom:8px!important;line-height:1.5!important}
+.preparation-book .page-flow h1,.preparation-book .page-flow h2,.preparation-book .page-flow h3{margin-bottom:8px!important}
+.preparation-book .page-flow li{margin:4px 0}
+.preparation-book .rule-score-table{margin:8px 0 12px}
+.preparation-book .rule-score-table th,.preparation-book .rule-score-table td{padding:6px 3px}
+.invitation-stage{align-self:center;color:#efe6d4;text-align:center}
+.invitation-stage>p{font-size:17px;margin:0 0 18px}
+.scene-object--invitation{aspect-ratio:3/2;width:100%}
+.invitation-ink{height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;padding:14% 35% 30% 9%;color:#30271b;text-align:center}
+.invitation-ink b{font-size:27px;white-space:nowrap;font-weight:500}.invitation-ink small{font-size:14px;white-space:nowrap}.invitation-ink span{font-size:14px;white-space:nowrap}
+.invitation-guide .object-material{animation:invitation-light 2.8s ease-in-out infinite}
+.invitation-guide .object-hit:hover .object-material{animation:none}
+@keyframes invitation-light{0%,100%{filter:brightness(.96) drop-shadow(8px 12px 7px #0009) drop-shadow(0 0 8px #e8a33d33)}50%{filter:brightness(1.05) drop-shadow(8px 12px 7px #0009) drop-shadow(0 0 22px #e8a33d77)}}
+@media(max-width:700px){
+ .start-scene{background-position:64% center;padding:28px;align-items:end;background-image:linear-gradient(0deg,#09120feb,transparent 90%),url('../../public/art/club-v7/entrance.webp')}
+ .start-copy{max-width:100%;width:100%;padding:0}.start-copy h1{font-size:38px}.start-label{margin:10px 0 18px}.start-menu{max-width:100%}.start-footnote{margin-top:20px}
+ .app-shell>.club-navigation,.folio-dialog-navigation{flex-wrap:wrap;justify-content:center;left:12px!important;right:12px!important;gap:4px 8px!important;top:8px}
+ .app-shell>.club-navigation button,.folio-dialog-navigation button{min-height:38px!important;padding:4px 6px!important;font-size:13px!important}
+ .round-lobby{padding:0 22px;grid-template-rows:25% 32% 18% 1fr;background-size:100% 100%,190% 112%;background-position:center top;background-image:linear-gradient(#07100c66,#07100c66),url('../../public/art/club-v7/round-table.webp')}
+ .round-heading h1{font-size:28px}.round-heading p{font-size:14px}.round-heading{padding-bottom:8px}
+ .round-games{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 30px;padding:0 10px;align-items:center}
+ .game-prop{gap:2px}.game-prop img{height:82px;max-width:100px}.game-prop-testimony img{max-width:64px}.game-prop .game-name{font-size:21px;min-height:28px}.game-prop small{font-size:13px}
+ .game-prop-material{height:82px}
+ .lobby-introduction{padding:8px 0;min-height:0}.lobby-introduction p{font-size:15px}.lobby-introduction h2{font-size:22px}.lobby-introduction h2 small{font-size:14px}
+ .round-footer{padding-bottom:18px}.round-footer button{font-size:15px}
+ .club-stage3.object-scene{background-image:linear-gradient(180deg,#09110caa 0 25%,transparent 45%),url('../../public/art/club-v7/writing-desk.webp');background-size:100% 125%;--desk-surface-start:.16;--desk-surface-end:.94}
+ .club-stage3.folio-scene{padding:126px 22px 8dvh;gap:12px;height:auto;min-height:100dvh;overflow:visible}
+ .folio-scene .folio-heading{padding-left:0}.folio-scene .folio-heading h1{font-size:28px}
+ .folio-scene .open-ledger,.folio-members .open-ledger,.folio-learning .open-ledger,.folio-reveal .open-ledger{width:350px;max-width:100%;margin:10px auto 0}
+ .folio-scene .reading-book{aspect-ratio:763.5/876}
+ .folio-scene .book-spread{padding-top:calc(100% * 876 / 763.5 * .09);padding-bottom:calc(100% * 876 / 763.5 * .16)}
+ .folio-scene .folio-leaf h2{font-size:24px}.folio-scene .folio-leaf p{font-size:16px}
+ .preparation-book .preparation-reading{display:flex;flex-direction:column;gap:8px;height:auto}
+ .preparation-book .open-ledger{width:350px;max-width:100%}
+ .invitation-stage{width:230px}.invitation-stage>p{margin:0 0 6px;font-size:15px}.invitation-ink b{font-size:23px}
+ .book-pagination{gap:6px;font-size:14px}.book-pagination button{font-size:16px;padding:4px 8px}
+ .club-stage3.folio-selection{height:100dvh;padding-bottom:6dvh}
+ .folio-selection .native-member-card{min-height:192px}.folio-selection .visiting-inscription{padding:10px 12px}
+ .folio-selection .selection-desk-footer{margin-top:0;gap:6px}
+ .folio-selection .native-members{row-gap:26px;margin-top:8px}
+ .folio-play .talk-choices .choice-note{height:100px}
+ .folio-scene .member-book-tabs{gap:8px}
+}
+@media(prefers-reduced-motion:reduce){.invitation-guide .object-material{animation:none}.game-prop img{transition:none}}

@@ -1,0 +1,60 @@
+/* §23: environment contains no controls. Each sprite IS its button, including its hit area. */
+.club-stage3.object-scene{width:100%;height:100dvh;min-height:0;margin:0;padding:0;position:relative;isolation:isolate;overflow:hidden;background:#1b241e url('../../public/art/preparation-v2/room.webp') center/cover no-repeat}
+.object-scene .preparation-props{height:100%;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,27%);align-items:end;justify-items:center;gap:32px;padding:39dvh clamp(24px,4vw,60px) 30px}
+.object-scene .scene-object{display:grid;grid-template-rows:minmax(0,1fr);position:relative;isolation:isolate;min-width:0;min-height:0;max-width:100%;width:100%;color:#30271b}
+.object-scene .scene-object--book{aspect-ratio:1527/876;width:min(100%,calc((61dvh - 30px)*1527/876))}
+.object-scene .scene-object--envelope{aspect-ratio:1454/796;margin-bottom:20px;width:min(340px,100%)}
+.object-scene .object-hit{grid-area:1/1;display:grid;appearance:none;-webkit-appearance:none;font:inherit;position:relative;width:100%;height:100%;min-width:44px;min-height:44px;padding:0;border:0;background:transparent;cursor:pointer;outline:none;opacity:1;transition:transform .18s cubic-bezier(.34,1.4,.64,1)}
+.object-scene .object-material{display:block;grid-area:1/1;width:100%;height:100%;min-width:0;min-height:0;pointer-events:none;filter:brightness(.9) drop-shadow(5px 8px 3px #0009) drop-shadow(12px 16px 12px #0008);transition:filter .18s ease}
+.object-scene .object-sprite{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none}
+.object-scene .object-hit:hover:not([aria-disabled=true]){transform:translateY(-6px) scale(1.02)}
+.object-scene .object-hit:hover:not([aria-disabled=true]) .object-material,.object-scene .object-hit:focus-visible:not([aria-disabled=true]) .object-material{filter:brightness(1) drop-shadow(5px 8px 3px #0009) drop-shadow(12px 20px 14px #0008) drop-shadow(0 0 18px rgba(232,163,61,.28))}
+.object-scene .object-hit:active:not([aria-disabled=true]){transform:scale(.97);transition:none}
+.object-scene .object-hit[aria-disabled=true]{cursor:not-allowed;transform:none}
+.object-scene .object-hit[aria-disabled=true] .object-material{filter:brightness(.5) grayscale(.45) drop-shadow(5px 8px 3px #0009)}
+.object-scene .object-text{grid-area:1/1;position:relative;min-width:0;min-height:0;z-index:1;pointer-events:none;filter:none;rotate:none;scale:none;transform:none;text-shadow:none}
+.object-scene .object-hit:hover:not([aria-disabled=true])+.object-text{top:-6px}
+.object-scene .object-hit:active:not([aria-disabled=true])+.object-text{top:0}
+.object-scene .object-hit[aria-disabled=true]+.object-text{color:#efe6d4}
+.object-scene .object-notice{position:relative;grid-column:1;max-width:100%;font-size:17px;color:#efe6d4;background:#2f2119;padding:8px 12px}
+/* Paper coordinates in the full 1527 x 876 sprite: left x14–44%, right x54–87%, y10–79%.
+   Percentage block padding resolves against WIDTH; convert the measured height fractions.
+   The 10%-of-sprite gutter is 10/73 of the padded grid width. See STAGE3-PREPARATION-GATE.md. */
+.object-scene .book-spread{height:100%;display:grid;grid-template-columns:minmax(0,30fr) minmax(0,33fr);column-gap:calc(100% * 10 / 73);padding:calc(100% * 876 / 1527 * .10) 13% calc(100% * 876 / 1527 * .21) 14%}
+.object-scene .book-page{display:flex;flex-direction:column;gap:8px;min-width:0;min-height:0}
+.object-scene .book-page h1{font-size:44px;line-height:1.1;letter-spacing:.12em;outline:none}
+.object-scene .book-page h2{font-size:26px;line-height:1.2;font-weight:500;margin:0}
+.object-scene .book-page p{font-size:17px;line-height:1.45}
+.object-scene .book-meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 12px}
+.object-scene .book-meta span{white-space:nowrap}
+.object-scene .book-page small{font-size:14px;white-space:nowrap;letter-spacing:.04em}
+.object-scene .book-action{margin-top:auto;font-size:17px;border-bottom:1px solid #574831;width:max-content;max-width:100%}
+.object-scene .book-page--rules .rules{gap:6px;font-size:17px;line-height:1.4}
+.object-scene .book-page--rules .rules>p:first-child{display:none}
+.object-scene .book-page--rules .rules p{font-size:17px;line-height:1.4}
+.object-scene .book-page--rules .rules table{font-size:17px;width:100%;margin:0;border-collapse:collapse}
+.object-scene .book-page--rules .rules caption{font-size:17px;text-align:left;padding-bottom:4px}
+.object-scene .book-page--rules .rules th,.object-scene .book-page--rules .rules td{font-size:17px;color:inherit;background:none;padding:2px 3px;border:0;border-bottom:1px solid rgba(120,92,52,.4);white-space:nowrap;text-align:left}
+/* Keep the envelope frame unchanged. Reserve the lower 56% for wax (stricter than 38%).
+   Convert height fractions using the fixed 1454 / 796 sprite aspect ratio. */
+.object-scene .envelope-inscription{height:100%;display:grid;grid-template-rows:min-content min-content;align-content:start;justify-items:center;text-align:center;padding:calc(100% * 796 / 1454 * .04) 9% calc(100% * 796 / 1454 * .56);gap:2px}
+.object-scene .envelope-inscription b{font-size:28px;line-height:1.2;font-weight:500;white-space:nowrap;letter-spacing:.1em}
+.object-scene .envelope-inscription small{font-size:14px;line-height:1.2;white-space:nowrap}
+.object-scene .mobile-rule-summary,.object-scene .mobile-overview{display:none}
+@media(max-width:700px){
+ .club-stage3.object-scene{background-size:auto 125%;background-position:center bottom}
+ .object-scene .preparation-props{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto;gap:18px;padding:23dvh 24px 20px}
+ .object-scene .scene-object--book{width:min(100%,344px);aspect-ratio:763.5/876}
+ .object-scene .scene-object--book .object-material{overflow:hidden}
+ .object-scene .scene-object--book .object-sprite{width:200%;max-width:none;object-fit:fill}
+ /* Mobile crops to the left half; double x coordinates and the block-padding conversion. */
+ .object-scene .book-spread{grid-template-columns:minmax(0,1fr);padding:calc(100% * 876 / 763.5 * .10) 12% calc(100% * 876 / 763.5 * .21) 28%;gap:0}
+ .object-scene .book-page--rules{display:none}
+ .object-scene .book-page{gap:8px}
+ .object-scene .mobile-rule-summary,.object-scene .mobile-overview{display:block}
+ .object-scene .full-overview,.object-scene .seal-constraint{display:none}
+ .object-scene .scene-object--envelope{width:260px;margin:0}
+ .object-scene .envelope-inscription b{font-size:26px}
+}
+@media(prefers-reduced-motion:reduce){.object-scene .object-hit,.object-scene .object-material{transition:none}}
+

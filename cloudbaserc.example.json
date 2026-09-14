@@ -1,0 +1,5 @@
+{
+  "envId": "YOUR_ENV_ID",
+  "functionRoot": "cloud-dist",
+  "functions": [{"name":"grey-heron-api","runtime":"Nodejs18.15","handler":"index.main","timeout":15,"memorySize":256,"installDependency":true,"envVariables":{"ALLOWED_ORIGINS":"https://YOUR_HOSTING_DOMAIN"}}]
+}

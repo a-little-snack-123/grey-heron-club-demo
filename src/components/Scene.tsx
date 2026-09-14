@@ -1,0 +1,10 @@
+import {useEffect,useRef,type ReactNode} from 'react';
+import {roles,type RoleId} from '../content';
+export const art=(name:string)=>`${import.meta.env.BASE_URL}art/noir-v2/${(['zhou','luo','xu','chen'] as string[]).includes(name)?`${name}-pixel`:name}.webp`;
+export const roleOf=(id:RoleId)=>roles.find(r=>r.id===id)!;
+export function Scene({page,className='',children}:{page:number;className?:string;children:ReactNode}){return <main className={`scene scene-${page} ${className}`} style={{backgroundImage:`url(${art(`scene-${page}`)})`}}>{children}</main>;}
+export function Title({title,english,children,className=''}:{title:string;english:string;children?:ReactNode;className?:string}){return <header className={`scene-title ${className}`}><img src={art('emblem')} alt=""/><span className="club-wordmark">GREY HERON CLUB</span><small>ESTABLISHED 1926 · SHANGHAI</small><h1 tabIndex={-1}>{title}</h1><span className="subtitle">{english}</span>{children&&<p>{children}</p>}</header>;}
+export function Paper({children,className=''}:{children:ReactNode;className?:string}){return <section className={`paper ${className}`}>{children}</section>;}
+export function Portrait({id,className=''}:{id:RoleId;className?:string}){return <img className={`portrait ${className}`} src={art(id)} alt={`${roleOf(id).name}的肖像`} width="140" height="149"/>;}
+export function BrassButton({children,onClick,disabled=false,className=''}:{children:ReactNode;onClick:()=>void;disabled?:boolean;className?:string}){return <button className={`brass-button ${className}`} onClick={onClick} disabled={disabled}><img src={art('emblem')} alt=""/><span>{children}</span></button>;}
+export function Modal({title,children,onClose}:{title:string;children:ReactNode;onClose:()=>void}){const ref=useRef<HTMLDialogElement>(null);useEffect(()=>{const el=ref.current;el?.showModal();return ()=>el?.close();},[]);return <dialog ref={ref} onCancel={onClose} onClick={e=>{if(e.target===ref.current)onClose();}}><header><h2>{title}</h2><button onClick={onClose}>关闭</button></header><div className="dialog-content">{children}</div></dialog>;}

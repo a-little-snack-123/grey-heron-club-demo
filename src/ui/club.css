@@ -1,0 +1,145 @@
+/* Stage 3: primitives migrated from prototype/seal-table.source.html.
+   Legacy consumers opt into legacy-club.css until their page is migrated.
+   Never apply filter / rotation / scaling to text or its ancestors. */
+.club-stage3 {
+ --warm:232,163,61;
+ --glow-soft:0 0 18px rgba(var(--warm),.28);
+ --glow-mid:0 0 32px rgba(var(--warm),.45);
+ --glow-strong:0 0 48px rgba(var(--warm),.65),0 0 96px rgba(var(--warm),.26);
+ --glow-inset:inset 0 0 22px rgba(var(--warm),.18);
+ --paper-shadow:0 14px 28px rgba(0,0,0,.55);
+ --paper-image:url('../../public/art/club/paper-aged-b.png');
+ --fiber:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+ font-family:'KaiTi','STKaiti','楷体','Songti SC',serif;
+ color:#EFE6D4;font-size:17px;line-height:1.5;
+}
+.club-stage3,.club-stage3 *{box-sizing:border-box}
+.club-stage3 :is(h1,h2,h3,p,dl,dd,figure){margin:0}
+.club-stage3 button{appearance:none;-webkit-appearance:none;font:inherit;color:inherit;background:none;border:0;touch-action:manipulation;opacity:1}
+.club-stage3 small{font-size:14px;line-height:1.35}
+.club-stage3 h1{font-size:48px;font-weight:500;line-height:1.1;letter-spacing:.14em}
+.club-stage3 [hidden]{display:none!important}
+.club-stage3 .card,.club-stage3 .paper-face{position:relative;isolation:isolate}
+.club-stage3 .paper-face{color:#30271b}
+.club-stage3 .card__text{position:relative;filter:none;rotate:none;scale:none;text-shadow:none}
+.club-stage3 .paper-face__material{position:absolute;inset:0;z-index:-1;pointer-events:none;rotate:var(--angle,-.4deg);filter:drop-shadow(5px 9px 5px rgba(0,0,0,.5))}
+.club-stage3 .paper-face__material::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(120% 100% at 12% 0%,rgba(255,246,225,.10),transparent 55%),linear-gradient(168deg,#e9dfc8 0%,#ded1b6 52%,#c8b898 100%);box-shadow:inset 0 0 34px rgba(90,60,25,.28);clip-path:polygon(1% 1%,24% 0,45% 1%,72% 0,99% 2%,100% 25%,99% 51%,100% 80%,99% 99%,66% 100%,41% 99%,1% 100%,0 66%,1% 42%,0 16%)}
+.club-stage3 .paper-face__material::after,.club-stage3 .paper::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.16;background-image:var(--fiber);mix-blend-mode:multiply;z-index:-1}
+.club-stage3 .paper{position:relative;grid-area:1/1;width:100%;height:100%;border:0;padding:0;box-shadow:none;background:radial-gradient(ellipse at 22% 20%,rgba(255,239,204,.24),transparent 65%),var(--paper-image) center/100% 100% no-repeat;background-color:#e9dfc8;mask-image:var(--paper-image);mask-size:100% 100%;isolation:isolate}
+.club-stage3 .paper::after{z-index:1}
+.club-stage3 .brass{appearance:none;-webkit-appearance:none;font:inherit;font-size:17px;letter-spacing:.12em;color:#EFE6D4;padding:16px 36px;min-height:56px;min-width:160px;background:transparent;border:0;border-radius:4px;cursor:pointer;position:relative;isolation:isolate;white-space:nowrap}
+.club-stage3 .brass::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(#3d2d1d,#241a12);border:1px solid rgba(140,107,51,.8);border-radius:4px;box-shadow:inset 0 0 22px rgba(232,163,61,.16),var(--glow-soft);transition:transform .12s ease,box-shadow .18s ease,filter .18s ease}
+.club-stage3 .brass:hover:not(:disabled)::before{box-shadow:inset 0 0 26px rgba(232,163,61,.24),var(--glow-mid);filter:brightness(1.08)}
+.club-stage3 .brass:active:not(:disabled)::before{transform:scale(.97)}
+.club-stage3 .brass:disabled{color:#b9ad98;cursor:not-allowed}
+.club-stage3 .brass:disabled::before{filter:brightness(.55) grayscale(.4)}
+.club-stage3 .brass:focus-visible{outline:2px solid rgba(232,163,61,.8);outline-offset:2px}
+.club-stage3 .brass--secondary{padding:10px 18px;min-width:128px;min-height:44px;font-size:14px;letter-spacing:.08em}
+.club-stage3 .brass--secondary::before{box-shadow:inset 0 0 22px rgba(232,163,61,.16)}
+.club-stage3 :where(.hit){min-width:44px;min-height:44px}
+.club-stage3 :is(.decor,.readonly,.ink,.paper,img){pointer-events:none}
+.club-stage3 .readonly{user-select:none}
+/* Text is a sibling of the hit/material layer, as in the approved prototype. */
+.club-stage3 .placement{display:grid;min-width:0;position:relative;isolation:isolate}
+.club-stage3 .selectable{appearance:none;-webkit-appearance:none;font:inherit;background:transparent;border:none;border-radius:0;outline:none;padding:0;min-width:44px;min-height:44px;width:100%;height:100%;display:grid;grid-area:1/1;isolation:isolate;position:relative;transition:transform .18s cubic-bezier(.34,1.4,.64,1),filter .18s ease;filter:brightness(.9)}
+.club-stage3 .selectable .card__material{display:grid;grid-area:1/1;rotate:var(--angle,-.4deg);filter:drop-shadow(5px 7px 3px rgba(0,0,0,.52)) drop-shadow(12px 18px 12px rgba(0,0,0,.30));pointer-events:none}
+.club-stage3 .selectable:hover{transform:translateY(-6px) scale(1.02);filter:brightness(1) drop-shadow(0 0 18px rgba(var(--warm),.28));cursor:pointer}
+.club-stage3 .selectable.is-selected{transform:translateY(-16px) scale(1.07);filter:brightness(1.2) contrast(1.05) drop-shadow(0 0 16px rgba(232,163,61,.72)) drop-shadow(0 0 44px rgba(232,163,61,.42));border:none;box-shadow:none;z-index:3}
+.club-stage3 .selectable.is-selected .card__material{filter:drop-shadow(5px 7px 3px rgba(0,0,0,.52)) drop-shadow(12px 18px 12px rgba(0,0,0,.30)) drop-shadow(0 22px 34px rgba(0,0,0,.55))}
+.club-stage3 .selectable.is-dimmed{filter:brightness(.72) saturate(.9)}
+.club-stage3 .selectable.is-locked,.club-stage3 .selectable.is-locked:hover{filter:brightness(.5) grayscale(.45);cursor:not-allowed;transform:none;box-shadow:none}
+.club-stage3 .selectable:not(.is-locked):active{transform:scale(.97);transition:transform 0s}
+.club-stage3 .selectable:focus-visible:not(.is-selected):not(.is-locked){filter:brightness(1) drop-shadow(0 0 18px rgba(var(--warm),.28));outline:none}
+.club-stage3 .ink{grid-area:1/1;z-index:4;pointer-events:none;color:#100c08}
+.club-stage3 .selectable:hover+.ink{top:-6px}
+.club-stage3 .selectable.is-selected+.ink{top:-16px}
+.club-stage3 .selectable.is-dimmed+.ink{color:#000}
+.club-stage3 .selectable.is-locked+.ink{top:0;color:#EFE6D4}
+.club-stage3 .selectable:not(.is-locked):active+.ink{top:0}
+.club-stage3 .photo-window{display:block;position:relative;isolation:isolate;mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 92%,transparent 100%);pointer-events:none}
+.club-stage3 .photo-window img{display:block;width:100%;height:100%;object-fit:contain;image-rendering:pixelated}
+@keyframes club-stage3-breathe{0%,100%{opacity:.6;box-shadow:0 0 10px rgba(232,163,61,.25)}50%{opacity:1;box-shadow:0 0 34px rgba(232,163,61,.60)}}
+.club-stage3 .guide{animation:club-stage3-breathe 2.2s ease-in-out infinite}
+.club-stage3 .guide.is-done{animation:none;opacity:1}
+.club-stage3 .brass>.guide{position:absolute;inset:0;border-radius:4px;z-index:-1}
+/* The table is a reusable scene; a booklet opens on the same approved material. */
+.club-stage3.club-book,.club-stage3.club-table{height:100dvh;min-height:0;width:100%;max-width:none;max-height:none;margin:0;border:0;padding:24px clamp(24px,4vw,72px) 26px;overflow:hidden;isolation:isolate;position:relative;background:#1B241E url('../../public/art/club/table.webp') center/100% 100% no-repeat}
+.club-stage3.club-book{position:fixed;inset:0;box-shadow:none}
+.club-stage3.club-book[open]{display:grid;place-items:center}
+.club-stage3.club-book::backdrop{background:#1B241E}
+.club-stage3.club-book::before,.club-stage3.club-table::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 62% 72% at 25% 32%,rgba(232,163,61,.22),rgba(232,163,61,.09) 35%,transparent 70%),linear-gradient(115deg,transparent 24%,rgba(7,13,9,.22) 60%,rgba(7,13,9,.68))}
+.club-stage3 .book-leaf{width:min(760px,100%);padding:30px 40px;min-height:0}
+.club-stage3 .book-leaf>.card__text{display:grid;gap:18px}
+.club-stage3 .book-heading{display:grid;gap:8px}
+.club-stage3 .book-heading h1{font-size:44px;outline:none}
+.club-stage3 .rules{display:grid;gap:14px;font-size:17px;line-height:1.5}
+.club-stage3 .rules p{font-size:17px;line-height:1.5}
+.club-stage3 .rules table{width:100%;border-collapse:collapse;font-size:17px;margin:0}
+.club-stage3 .rules caption{text-align:left;font-size:17px;padding:0 0 6px}
+.club-stage3 .rules th,.club-stage3 .rules td{padding:8px 6px;border:0;border-bottom:1px solid rgba(120,92,52,.4);background:none;color:#30271b;text-align:left;white-space:nowrap}
+.club-stage3 .book-footer{display:flex;justify-content:flex-end}
+@media(max-width:700px){
+ .club-stage3.club-book,.club-stage3.club-table{padding:12px 14px 16px;background-size:auto 100%;background-position:20% center}
+ .club-stage3 .book-leaf{padding:22px 18px}
+ .club-stage3 .book-leaf>.card__text{gap:10px}
+ .club-stage3 .book-heading{gap:6px}
+ .club-stage3 .book-heading h1{font-size:28px;letter-spacing:.08em}
+ .club-stage3 .rules{gap:8px}
+ .club-stage3 .rules th,.club-stage3 .rules td{padding:6px}
+}
+@media(prefers-reduced-motion:reduce){.club-stage3 .guide{animation:none;opacity:1}.club-stage3 .selectable,.club-stage3 .brass::before{transition:none}}
+/* Physical object shelf: invitation and bound records share the same hit/text split. */
+.club-stage3.club-foyer{display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:24px;padding-top:64px;padding-bottom:42px}
+.app-shell:has(#main-content>main.club-stage3)>.club-navigation,
+.app-shell:has(#main-content>main.club-stage3)>.site-footer{display:none}
+.club-stage3 .club-heading{display:grid;justify-items:center;text-align:center;gap:12px;min-width:0;min-height:0}
+.club-stage3 .club-heading h1{outline:none}
+.club-stage3 .club-heading>small{font-size:17px;letter-spacing:.16em;white-space:nowrap}
+.club-stage3 .club-heading p{font-size:17px;line-height:1.5}
+.club-stage3 .object-shelf{display:flex;align-items:center;justify-content:center;gap:48px;min-width:0;min-height:0;width:min(1060px,100%);justify-self:center;padding:28px 18px}
+.club-stage3 .club-object{flex:1 1 260px;max-width:300px;height:min(280px,100%);--cover:#ded1b6}
+.club-stage3 .club-object--letter{height:min(254px,100%);align-self:center}
+.club-stage3 .club-object--members{--cover:#1b241e}
+.club-stage3 .book-cover{display:block;position:relative;grid-area:1/1;border-radius:4px 10px 10px 4px;background:radial-gradient(120% 100% at 12% 0%,rgba(255,246,225,.10),transparent 55%),linear-gradient(100deg,rgba(25,16,9,.25),transparent 16%,rgba(25,16,9,.16)),var(--cover);box-shadow:inset 0 0 34px rgba(90,60,25,.28),inset 0 -6px 0 #94816a,inset -3px 0 0 rgba(0,0,0,.4);border:1px solid rgba(120,92,52,.45)}
+.club-stage3 .book-spine{position:absolute;inset:0 auto 0 0;width:24px;border-radius:4px 0 0 4px;background:linear-gradient(90deg,#241a12,#463622,#241a12);box-shadow:3px 0 6px rgba(0,0,0,.35)}
+.club-stage3 .book-spine::after{content:'';position:absolute;inset:20% 0;background:repeating-linear-gradient(0deg,transparent 0 48px,#574831 49px 52px,transparent 53px 66px)}
+.club-stage3 .object-ink{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:24px 18px 35px 32px;min-width:0}
+.club-stage3 .object-ink b{font-size:28px;font-weight:500;letter-spacing:.12em;white-space:nowrap}
+.club-stage3 .object-ink small{font-size:14px;letter-spacing:.1em;white-space:nowrap}
+.club-stage3 .club-object--letter .object-ink{padding:24px 18px 55px}
+.club-stage3 .club-object--members .object-ink{color:#EFE6D4}
+.club-stage3 .object-guide{position:absolute;justify-self:center;align-self:end;width:8px;height:8px;border-radius:50%;background:#E8A33D;bottom:20px}
+.club-stage3 .object-guide.is-done{visibility:hidden}
+.club-stage3 .club-footnote{display:flex;justify-content:space-between;align-items:center;gap:20px;width:min(1000px,100%);justify-self:center;min-width:0;min-height:0}
+.club-stage3 .club-footnote__copy{display:flex;align-items:center;gap:24px}
+.club-stage3 .club-footnote p{font-size:17px}
+.club-stage3 .club-footnote small{white-space:nowrap}
+@media(max-width:1100px) and (min-width:701px){.club-stage3 .object-shelf{gap:32px}.club-stage3 .object-ink b{font-size:26px}}
+@media(max-width:700px){
+ .club-stage3.club-foyer{padding:30px 18px 20px;gap:16px;grid-template-rows:auto minmax(0,1fr) auto}
+ .club-stage3 .club-heading{gap:10px}
+ .club-stage3 .club-heading h1{font-size:44px;letter-spacing:.08em}
+ .club-stage3 .club-heading>small{font-size:14px;letter-spacing:.06em}
+ .club-stage3 .object-shelf{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:minmax(0,1fr) minmax(0,1fr);gap:30px 26px;padding:16px 8px}
+ .club-stage3 .club-object{height:100%;max-width:none;min-width:0}
+ .club-stage3 .club-object--letter{grid-column:1/3;width:250px;justify-self:center}
+ .club-stage3 .book-spine{width:14px}
+ .club-stage3 .object-ink{padding:16px 8px 22px 18px;gap:8px}
+ .club-stage3 .object-ink b{font-size:26px;letter-spacing:0}
+ .club-stage3 .object-ink small{font-size:14px;letter-spacing:0}
+ .club-stage3 .club-object--letter .object-ink{padding:12px 12px 36px}
+ .club-stage3 .object-guide{bottom:16px}
+ .club-stage3 .club-footnote{gap:12px;align-items:end}
+ .club-stage3 .club-footnote__copy{display:grid;gap:8px;min-width:0}
+ .club-stage3 .club-footnote p{font-size:17px;max-width:200px}
+ .club-stage3 .club-footnote .brass{min-width:112px;padding:10px 12px}
+ .club-stage3 .club-footnote:has(.club-footnote__copy .brass){flex-wrap:wrap}
+}
+
+/* Readable wood labels: material remains separate from every text ancestor. */
+.club-stage3 .wood-face{position:relative;isolation:isolate;padding:16px 24px}
+.club-stage3 .wood-face::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;rotate:-.4deg;background:linear-gradient(100deg,#2f2119,#241a12);border:1px solid rgba(120,92,52,.45);border-radius:3px;box-shadow:inset 0 0 22px rgba(0,0,0,.24),5px 9px 5px rgba(0,0,0,.5)}
+.club-stage3 .club-heading.wood-face{width:min(640px,100%);justify-self:center}
+.club-stage3 .club-footnote__copy.wood-face{padding:10px 14px}
+.club-stage3 .book-cover::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.16;background-image:var(--fiber);mix-blend-mode:multiply}
+@media(max-width:700px){.club-stage3 .club-heading.wood-face{padding:16px 10px}.club-stage3 .club-footnote__copy.wood-face{padding:8px 10px}.club-stage3 .club-footnote p{max-width:170px}}

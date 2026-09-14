@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>灰鹭俱乐部 · 项目档案</title>
+<meta name="description" content="把长对话换成选择。一款不用打字的心理博弈游戏，以原创角色、封签查验和赛后复盘连接沉浸体验与博弈学习。">
+<link rel="stylesheet" href="./project.css">
+</head>
+<body>
+<a class="skip" href="#story">跳到项目介绍</a>
+<header class="masthead"><a href="../index.html">灰鹭俱乐部</a><span>GREY HERON CLUB / 项目档案</span></header>
+<main>
+<section class="hero" aria-labelledby="title">
+<div class="hero-copy"><h1 id="title">把长对话，<br>换成选择。</h1><p>不用打字的心理博弈游戏。<br>在一张牌桌上试探对手，也回看自己的判断。</p><div class="actions"><a class="seal-link" href="../index.html">进入俱乐部</a><a href="https://github.com/a-little-snack-123/grey-heron-club-demo">查看源码 ↗</a></div></div>
+<img class="hero-image" src="./entrance.webp" width="1280" height="720" alt="游戏实机：夜色中的灰鹭俱乐部大门，暖灯照亮入口">
+</section>
+<article class="dossier" id="story">
+<section class="opening"><h2>我想做的，是一种新的博弈玩法。</h2><p>我喜欢悬疑解谜和智斗作品，也尝试过与 AI 玩剧本杀。但长篇辩解并不是我想要的互动方式。这段体验让我重新思考：能否用几次简单操作，保留试探、权衡和揭晓的乐趣？</p><p>于是，我把体验的核心放在可操作的选择上：选择出什么签，判断是否查验，再看到结果。角色和场景提供代入感，明确的规则让每次行动都有代价，赛后反馈则让一局游戏留下可以理解的收获。</p></section>
+<section class="play"><div><h2>第一张牌桌：《封签》</h2><p>两人轮流封入真签或假签。双方各出签四次，每人只有两次查验机会，八轮后比较总分。</p><ol><li><b>出签</b><span>选择真签或假签，封好后不能更换。</span></li><li><b>试探</b><span>可以选择一句回应，也可以保持沉默。</span></li><li><b>决定</b><span>查验，或放行。把有限的机会留给哪一轮？</span></li><li><b>揭晓</b><span>公开真假与得分，继续下一轮，最后回看整局。</span></li></ol></div><figure><img src="./play.webp" width="1280" height="720" loading="lazy" alt="封签实机：暖光书桌上的真签、假签与人物立绘"><figcaption>真实游戏画面 · 点击纸签完成行动</figcaption></figure></section>
+<section class="characters"><h2>让不同对手值得被观察</h2><p>四位原创角色各有背景与说话习惯。目前已有审核过的场景台词，以及轻量的策略偏好差异；角色共享同一套规则和可用信息。</p><div class="portraits"><figure><img src="../art/noir-v2/zhou-pixel.webp" loading="lazy" alt="周宁像素肖像"><figcaption><b>周宁</b>核算员 · 认真核对规则</figcaption></figure><figure><img src="../art/noir-v2/luo-pixel.webp" loading="lazy" alt="罗辰像素肖像"><figcaption><b>罗辰</b>旧货商 · 爱搭话与周旋</figcaption></figure><figure><img src="../art/noir-v2/xu-pixel.webp" loading="lazy" alt="许遥像素肖像"><figcaption><b>许遥</b>旁听者 · 留意具体细节</figcaption></figure><figure><img src="../art/noir-v2/chen-pixel.webp" loading="lazy" alt="陈夏像素肖像"><figcaption><b>陈夏</b>调解员 · 温和而有边界</figcaption></figure></div><p class="note">当前电脑对手由规则策略驱动，台词来自预先编写的语料；更丰富的性格、情绪和连续演出仍在后续计划中。</p></section>
+<section class="learning"><h2>玩完一局，还能带走什么？</h2><p>复盘记录每轮选择、公开结果和得分。原理笔记介绍信息不对称、信号与承诺、混合策略和有限查验；试算工具允许调整假签概率，观察查验与放行的本轮期望得分如何变化。</p><figure><img src="./learning.webp" width="1280" height="720" loading="lazy" alt="博弈原理解析实机：纸质笔记中的原理、现实应用和试算入口"><figcaption>从操作记录进入原理解释，再回到自己的判断</figcaption></figure><p class="note">试算基于玩家设定的概率，只比较本轮收益，不计后续机会成本。当前复盘不承诺给出每一轮的全局最优解。</p></section>
+<section class="craft"><h2>把界面放进俱乐部里</h2><p>从夜色中的大门，到大厅圆桌，再到俯视书桌，页面围绕同一个具体场所展开。书页承载规则，纸签承载选择，卷宗承载复盘；暖光、做旧材质和细笔画像素字体保持统一。</p><p>美术由 AI 辅助制作与迭代，人物限定为四张批准的像素立绘。场景、物件与文字分层，让纸面内容可以翻阅、选择，也能适配手机。</p></section>
+<section class="status"><h2>这一版做到哪里了</h2><div class="status-columns"><div><h3>已经可以体验</h3><ul><li>《封签》完整八轮电脑对局</li><li>四位角色、两档策略与可选短句</li><li>逐轮结果、赛后记录、原理笔记与试算</li><li>手机与桌面适配、刷新恢复对局</li><li>服务端裁决与未揭晓信息隔离</li></ul></div><div><h3>接下来要继续做</h3><ul><li>完善《最后证词》《盲池》《第三席》的规则和实现</li><li>增强角色策略差异、情绪与多轮反应</li><li>通过真实试玩验证重玩意愿与理解成本</li><li>在明确假设下改进决策复盘</li></ul></div></div></section>
+<section class="contribution"><h2>我的工作</h2><p>我提出不用打字的博弈玩法，定义角色方向、操作与复盘闭环，持续调整视觉和交互，并检查实机效果。使用 Codex 辅助完成编码、素材制作、测试与部署，通过反馈推动迭代。</p><p>这是个人兴趣驱动、可以试玩的产品原型。目前没有经过系统用户研究验证，也没有可报告的用户规模、留存或商业化结果。</p><a href="./project-copy.md" download>下载项目介绍与简历文案 ↓</a></section>
+</article>
+</main>
+<footer>灰鹭俱乐部 · 原创心理博弈原型</footer>
+</body></html>

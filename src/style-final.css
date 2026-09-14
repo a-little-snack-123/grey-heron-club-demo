@@ -1,0 +1,159 @@
+/* Final visual pass: loaded after the legacy stylesheet so reference plates win. */
+dialog.archive-dialog .archive-heading-ornament{
+  width:110px!important;height:35px!important;margin:0 auto 3px!important;
+  background:url('/art/noir-v2/archive-ornament-alpha.webp') center/contain no-repeat!important;
+  filter:none!important;opacity:.95!important;
+}
+dialog.archive-dialog .archive-room{
+  background:linear-gradient(180deg,#21130e 0%,#0e0806 100%)!important;
+  border:0!important;box-shadow:0 28px 90px #000e!important;
+}
+dialog.archive-dialog .archive-room:after{border:0!important}
+dialog.archive-dialog .archive-paper{
+  width:min(560px,82vw)!important;border:0!important;border-radius:3px 10px 10px 3px!important;
+  background:linear-gradient(90deg,#c39b67 0%,#ead4a9 15%,#f0dfbd 48%,#e2c99a 82%,#b98e5c 100%),url('/art/noir-v2/paper.webp') center/cover!important;
+  box-shadow:inset 18px 0 28px #6d452a33,inset -12px 0 20px #fff3,0 24px 28px #000c!important;
+  clip-path:polygon(1% 0,98% 2%,100% 96%,2% 100%)!important;
+}
+dialog.archive-dialog .archive-paper:before{content:'';position:absolute;left:50%;top:4%;bottom:4%;width:1px;background:#8d633b66;box-shadow:4px 0 #fff2;pointer-events:none}
+
+@media (max-aspect-ratio:1.6){
+  .scene.entrance,.scene.lobby-scene,.scene.preparation,.scene.selection-scene,.scene.play-scene,.scene.reveal-scene,.scene.learning-scene{
+    height:100vh!important;min-height:100vh!important;aspect-ratio:auto!important;
+    background-size:auto 100%!important;background-position:center top!important;
+  }
+  .site-footer{display:none!important}
+}
+@media (max-width:600px){
+  dialog.archive-dialog{width:96vw!important;max-height:92vh!important}
+  .archive-dialog .archive-room{padding:24px 12px 18px!important}
+  .archive-dialog .archive-stage{min-height:330px!important}
+  .archive-dialog .archive-book-opening{width:340px!important}
+  .archive-dialog .archive-paper{top:100px!important;width:320px!important;padding:20px!important}
+  .archive-dialog .archive-index button{padding:8px 9px!important;font-size:9px!important}
+  .archive-dialog .archive-heading-wrap{padding-top:12px!important}
+  .archive-dialog .archive-heading{font-size:26px!important}
+  .opponent-scene .selection-notes select,.opponent-scene .selection-notes input,.opponent-scene .selection-notes label{visibility:hidden!important}
+}
+
+/* Lobby: replace the plate's baked sentence with the approved line and lift the dark tables. */
+html,body,#root{overflow-x:hidden!important}
+.lobby-copy-correction{position:absolute!important;left:50%!important;top:20.2%!important;width:min(620px,50vw)!important;transform:translateX(-50%)!important;margin:0!important;padding:8px 22px!important;text-align:center!important;color:#f0d4a1!important;font:600 clamp(14px,1.45vw,24px)/1.4 'Noto Serif SC','Songti SC',serif!important;letter-spacing:.12em!important;text-shadow:0 2px 9px #000,0 0 16px #d8a85b88!important;background:radial-gradient(ellipse,#1a0f0be8 0%,#1a0f0bb5 58%,transparent 88%)!important;z-index:6!important;pointer-events:none!important}
+.lobby-scene .table-entry:before{display:none!important}
+.lobby-scene .table-entry:after{content:''!important;inset:-12%!important;background:radial-gradient(ellipse at center,#f6cb7c72 0%,#d59b4a35 34%,transparent 72%)!important;opacity:.32!important;mix-blend-mode:screen!important;transition:opacity .25s,transform .25s!important;animation:table-breathe 3.2s ease-in-out infinite!important}
+.lobby-scene .table-entry:hover:after,.lobby-scene .table-entry:focus-visible:after{opacity:1!important;transform:scale(1.04)!important;animation:none!important}
+.lobby-scene .table-blind:after,.lobby-scene .table-third:after{opacity:.52!important}
+.lobby-scene .table-blind,.lobby-scene .table-third{filter:brightness(1.18) saturate(1.08)!important}
+@keyframes table-breathe{0%,100%{opacity:.25;transform:scale(.98)}50%{opacity:.55;transform:scale(1.02)}}
+.entrance .archive-book:after{content:'查看旧案'!important;position:absolute;left:18%;right:18%;bottom:15%;height:20%;display:grid;place-items:center;color:#f2d29a;font:600 clamp(11px,1.2vw,19px) 'Noto Serif SC','Songti SC',serif;letter-spacing:.15em;text-shadow:0 1px 8px #000,0 0 14px #d9a35a;background:radial-gradient(ellipse,#d8a55e6b,transparent 68%);opacity:.82;animation:hotspot-pulse 2.4s ease-in-out infinite;pointer-events:none}
+@keyframes hotspot-pulse{0%,100%{opacity:.48;filter:drop-shadow(0 0 2px #c88a3d)}50%{opacity:1;filter:drop-shadow(0 0 13px #f3c36d)}}
+
+/* Archive: a readable two-page spread instead of a floating rectangular card. */
+dialog.archive-dialog .archive-heading-wrap{padding:22px 0 17px!important}
+dialog.archive-dialog .archive-heading{font-size:clamp(34px,4.8vw,56px)!important}
+dialog.archive-dialog .archive-kicker{font-size:13px!important;letter-spacing:4px!important}
+dialog.archive-dialog .archive-subtitle{font-size:16px!important;line-height:1.7!important;margin-top:11px!important}
+dialog.archive-dialog .archive-paper{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:30px!important;min-height:285px!important;padding:30px 38px!important;transform:translateX(-50%) rotate(-1deg)!important}
+dialog.archive-dialog .archive-page{position:relative!important;min-width:0!important;color:#2b1a10!important}
+dialog.archive-dialog .archive-page-left{padding-right:20px!important;border-right:1px solid #8d633b66!important}
+dialog.archive-dialog .archive-page-number{display:block;color:#81542d;font:10px Georgia,serif;letter-spacing:3px;margin-bottom:11px}
+dialog.archive-dialog .archive-page h3{margin:0 0 8px!important;font-size:clamp(24px,3vw,34px)!important;letter-spacing:.1em!important}
+dialog.archive-dialog .archive-page small{font:10px Georgia,serif;letter-spacing:2px;color:#704723}
+dialog.archive-dialog .archive-page p{font-size:14px!important;line-height:1.9!important;margin:18px 0!important}
+dialog.archive-dialog .archive-page button{background:#522b1c;color:#f0cf91;border:0;padding:11px 16px;font-size:13px;box-shadow:0 4px 9px #0005}
+dialog.archive-dialog .archive-page-right{padding-left:2px!important}
+dialog.archive-dialog .archive-page-right h4{margin:28px 0 0;font-size:23px;letter-spacing:.18em}
+dialog.archive-dialog .archive-stamp{display:inline-block;border:1px solid #8e5b32;padding:4px 8px;color:#8e5b32;font:9px Georgia;letter-spacing:2px;transform:rotate(-4deg)}
+dialog.archive-dialog .archive-rule-line{height:1px;background:#96663c;margin:20px 0 10px}
+dialog.archive-dialog .archive-hand-note{font-style:italic;color:#714726!important}
+dialog.archive-dialog .archive-page-mark{position:absolute;right:0;bottom:0;color:#8a5b32;font:10px Georgia;letter-spacing:2px}
+dialog.archive-dialog .archive-index{margin-top:16px!important;gap:13px!important}
+dialog.archive-dialog .archive-index button{padding:13px 20px!important;font-size:14px!important;letter-spacing:.08em!important}
+dialog.archive-dialog .archive-stage{min-height:330px!important}
+dialog.archive-dialog .archive-open-trigger{position:absolute!important;left:50%!important;top:54%!important;transform:translate(-50%,-50%)!important;z-index:4!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:4px!important;min-width:154px!important;min-height:72px!important;padding:14px 22px!important;color:#f5d9a2!important;background:radial-gradient(ellipse,#5c3922dd 0%,#24140df0 65%,transparent 100%)!important;border:1px solid #b47b39!important;box-shadow:0 0 0 1px #c9964a55,0 0 24px #e3ad5c99,0 9px 18px #000b!important;text-shadow:0 1px 8px #000,0 0 12px #edbd70!important;animation:archive-open-pulse 2.2s ease-in-out infinite!important;cursor:pointer!important}
+dialog.archive-dialog .archive-open-trigger span{font:600 18px/1.1 'Noto Serif SC','Songti SC',serif!important;letter-spacing:.16em!important}
+dialog.archive-dialog .archive-open-trigger small{font:11px/1.3 Georgia,'Noto Serif SC',serif!important;letter-spacing:.12em!important;color:#d8af70!important}
+dialog.archive-dialog .archive-open-trigger:hover,dialog.archive-dialog .archive-open-trigger:focus-visible{animation:none!important;transform:translate(-50%,-50%) scale(1.05)!important;box-shadow:0 0 0 1px #e6be78,0 0 36px #f0c475cc,0 12px 22px #000c!important;outline:0!important}
+dialog.archive-dialog:not(:has(.archive-is-open)) .archive-book-opening{filter:brightness(.72) saturate(.8) drop-shadow(0 28px 24px #000)!important}
+dialog.archive-dialog .archive-is-open .archive-book-opening{filter:brightness(1.03) saturate(1.08) drop-shadow(0 28px 24px #000)!important}
+@keyframes archive-open-pulse{0%,100%{opacity:.72;filter:drop-shadow(0 0 4px #dca75d)}50%{opacity:1;filter:drop-shadow(0 0 16px #f2c77b)}}
+
+/* Preparation and selection surfaces are paper overlays; their copy stays live and legible. */
+.preparation .prep-record,.preparation .prep-rules,.preparation .prep-opponent{visibility:visible!important;color:#2b1a10!important;background:linear-gradient(135deg,#eddbb8ee,#bc9868e8),url('/art/noir-v2/paper.webp') center/cover!important;border:0!important;box-shadow:inset 0 0 22px #6d452a26,0 14px 24px #000b!important;pointer-events:auto!important;overflow:hidden!important}
+.preparation .prep-record>*,.preparation .prep-rules>*,.preparation .prep-opponent>*{visibility:visible!important}
+.preparation .prep-record{left:4%!important;top:30%!important;width:25%!important;height:45%!important;transform:rotate(-2deg)!important;padding:22px!important}
+.preparation .prep-rules{position:absolute!important;left:38%!important;top:33%!important;width:25%!important;height:46%!important;padding:22px!important}
+.preparation .prep-opponent{right:4%!important;top:30%!important;width:25%!important;height:46%!important;padding:22px!important;transform:rotate(2deg)!important}
+.preparation .prep-record h2,.preparation .prep-rules h2,.preparation .prep-opponent h2{font-size:clamp(18px,2vw,28px)!important;margin:0 0 7px!important}
+.preparation .prep-record p,.preparation .prep-rules p,.preparation .prep-opponent p{font-size:clamp(10px,1vw,14px)!important;line-height:1.75!important}
+.preparation .prep-next{position:absolute!important;left:50%!important;top:auto!important;bottom:5%!important;width:24%!important;height:auto!important;min-height:56px!important;transform:translateX(-50%)!important;background:linear-gradient(180deg,#d5aa62,#7d4f27)!important;border:3px double #f0cf91!important;box-shadow:0 8px 20px #000b,0 0 22px #d39e4a55!important;color:#26150c!important;z-index:8!important}
+.preparation .prep-next>*{visibility:visible!important}
+
+/* Pixel-gothic character cards: the selected card rises from the table and the rest recede. */
+.selection-scene .character-card{visibility:visible!important;display:flex!important;flex-direction:column!important;justify-content:flex-start!important;color:#2b1a10!important;background:linear-gradient(135deg,#eeddbb,#b99666),url('/art/noir-v2/paper.webp') center/cover!important;border:3px double #68431d!important;border-radius:3px!important;padding:10px!important;box-shadow:0 14px 20px #000b,inset 0 0 22px #6d452a2e!important;transition:transform .25s,box-shadow .25s,filter .25s!important}
+.selection-scene .character-card>*{visibility:visible!important}
+.selection-scene .character-card .portrait{width:100%!important;height:45%!important;aspect-ratio:1/1!important;object-fit:cover!important;display:block!important;margin:0 0 9px!important;border:1px solid #80582b!important}
+.selection-scene .character-card .character-head{display:block!important}.selection-scene .character-card .character-head div,.selection-scene .character-card p,.selection-scene .character-card .character-style{padding-inline:2px!important}.selection-scene .character-card h2{font-size:clamp(16px,1.7vw,27px)!important;margin:0!important}.selection-scene .character-card .character-head span{font-size:11px!important}.selection-scene .character-card p,.selection-scene .character-card .character-style{font-size:10px!important;line-height:1.55!important}.selection-scene .character-card .character-style{margin-top:7px!important;padding-top:7px!important}.selection-scene .character-card .selection-label{margin:8px 0 0!important;font-size:11px!important;background:#4b291c!important;color:#f0cf91!important}
+.selection-scene .character-card:hover,.selection-scene .character-card:focus-visible,.selection-scene .character-card.selected{transform:translateY(-14px) scale(1.04)!important;filter:brightness(1.1)!important;box-shadow:0 24px 30px #000d,0 0 30px #efc271aa,inset 0 0 25px #fff3!important;z-index:12!important;outline:0!important}
+.selection-scene .character-card:disabled{filter:brightness(.58) saturate(.7)!important;opacity:1!important;background:#c6a778!important;cursor:not-allowed!important}
+.selection-scene .character-card:disabled:hover{transform:none!important;box-shadow:0 14px 20px #000b!important}
+.identity-scene .character-card:nth-child(1){left:20%!important;top:35%!important;width:17%!important;height:49%!important}.identity-scene .character-card:nth-child(2){left:39%!important;top:35%!important;width:17%!important;height:49%!important}.identity-scene .character-card:nth-child(3){left:58%!important;top:35%!important;width:17%!important;height:49%!important}.identity-scene .character-card:nth-child(4){left:77%!important;top:35%!important;width:17%!important;height:49%!important}
+.opponent-scene .character-card:nth-child(1){left:11%!important;top:37%!important;width:17%!important;height:48%!important}.opponent-scene .character-card:nth-child(2){left:30%!important;top:37%!important;width:17%!important;height:48%!important}.opponent-scene .character-card:nth-child(3){left:49%!important;top:37%!important;width:17%!important;height:48%!important}.opponent-scene .character-card:nth-child(4){left:68%!important;top:37%!important;width:17%!important;height:48%!important}
+.selection-scene .selection-next{position:absolute!important;left:50%!important;top:auto!important;bottom:3%!important;width:25%!important;height:auto!important;min-height:58px!important;transform:translateX(-50%)!important;background:linear-gradient(180deg,#d5aa62,#7d4f27)!important;border:3px double #f0cf91!important;box-shadow:0 8px 20px #000b,0 0 24px #d39e4a55!important;color:#26150c!important;z-index:14!important;pointer-events:auto!important;outline:0!important}
+.selection-scene .selection-next>*{visibility:visible!important}.selection-scene .selection-next:hover,.selection-scene .selection-next:focus-visible{transform:translateX(-50%) translateY(-5px)!important;box-shadow:0 14px 26px #000c,0 0 32px #efc271aa!important}
+.selection-scene .selection-notes{visibility:visible!important;color:#2b1a10!important;background:linear-gradient(135deg,#ead6aaee,#b48e5fe8),url('/art/noir-v2/paper.webp') center/cover!important;border:0!important;box-shadow:0 12px 22px #000a!important;padding:18px!important;z-index:10!important}
+.selection-scene .selection-notes>*{visibility:visible!important}.selection-scene .selection-notes h2{font-size:22px!important}.selection-scene .selection-notes p{font-size:11px!important;line-height:1.75!important}
+
+/* Formal game: remove accidental browser rectangles and make the actual current choice obvious. */
+.play-scene .action-card:focus-visible,.play-scene .table-actions>.brass-button:focus-visible,.round-progress span{outline:0!important}
+.play-scene .action-card:after{opacity:.26!important;animation:action-breathe 2.8s ease-in-out infinite!important}.play-scene .action-card:hover:after,.play-scene .action-card:focus-visible:after,.play-scene .action-card.selected:after{opacity:1!important;animation:none!important}
+@keyframes action-breathe{0%,100%{transform:scale(.92);opacity:.18}50%{transform:scale(1.02);opacity:.55}}
+.action-hint{position:absolute!important;left:50%!important;bottom:16%!important;transform:translateX(-50%)!important;padding:7px 18px!important;color:#f0d4a2!important;background:linear-gradient(180deg,#2a170fe8,#100906e8)!important;border:1px solid #b47d3c!important;box-shadow:0 0 18px #d6a45b55!important;font-size:12px!important;letter-spacing:.08em!important;z-index:8!important;pointer-events:none!important}
+.play-scene.phase-choose .table-actions>.brass-button{visibility:visible!important;width:48%!important;min-height:43px!important;margin:4px auto!important;background:linear-gradient(180deg,#d5aa62,#7d4f27)!important;border:3px double #f0cf91!important;box-shadow:0 8px 18px #000b,0 0 20px #d39e4a66!important;color:#26150c!important}
+.play-scene.phase-choose .table-actions>.brass-button>*{visibility:visible!important}.play-scene.phase-choose .table-actions>.brass-button:disabled{filter:grayscale(.45) brightness(.78)!important;opacity:.9!important}.play-scene.phase-choose .seal-deck{width:58%!important;margin:0 auto 8px!important}.play-scene.phase-choose .seal-deck .action-card{color:#f6dfb4!important;text-indent:0!important;background:linear-gradient(135deg,#4b3023,#1c100c)!important;border:1px solid #d0a05b!important;padding:7px!important;min-height:48px!important}.play-scene.phase-choose .seal-deck .action-card>*{visibility:visible!important;color:inherit!important}.play-scene.phase-choose .seal-deck .action-card span{display:none!important}.play-scene.phase-choose .seal-deck .action-card.selected{background:linear-gradient(135deg,#c08a49,#704326)!important;box-shadow:0 0 24px #efc271aa!important}
+@media (max-width:600px){
+  .lobby-copy-correction{top:20.3%!important;width:100vw!important;height:9%!important;display:grid!important;place-items:center!important;font-size:12px!important;padding:0 12px!important;background:#150c0cf2!important}
+  .selection-scene .selection-notes{left:5%!important;right:auto!important;top:24%!important;width:90%!important;height:11%!important;transform:none!important;padding:8px 12px!important;overflow:hidden!important}
+  .selection-scene .selection-notes h2{font-size:13px!important}.selection-scene .selection-notes p{font-size:8px!important;margin:2px 0!important}.selection-scene .selection-notes p:nth-of-type(n+2),.selection-scene .selection-notes .identity-illustrations,.selection-scene .selection-notes label,.selection-scene .selection-notes select,.selection-scene .selection-notes .check-label{display:none!important}
+  .selection-scene .character-card{padding:6px!important}.selection-scene .character-card .portrait{height:54%!important}.selection-scene .character-card h2{font-size:13px!important}.selection-scene .character-card p,.selection-scene .character-card .character-style{font-size:8px!important}.selection-scene .character-card .character-style{display:none!important}.selection-scene .character-card .selection-label{font-size:8px!important}
+  .identity-scene .character-card:nth-child(1),.opponent-scene .character-card:nth-child(1){left:5%!important;top:37%!important;width:42%!important;height:25%!important}.identity-scene .character-card:nth-child(2),.opponent-scene .character-card:nth-child(2){left:53%!important;top:37%!important;width:42%!important;height:25%!important}.identity-scene .character-card:nth-child(3),.opponent-scene .character-card:nth-child(3){left:5%!important;top:64%!important;width:42%!important;height:25%!important}.identity-scene .character-card:nth-child(4),.opponent-scene .character-card:nth-child(4){left:53%!important;top:64%!important;width:42%!important;height:25%!important}
+  .selection-scene .selection-next{width:58%!important;min-height:48px!important;font-size:11px!important}
+  .preparation .prep-record,.preparation .prep-rules,.preparation .prep-opponent{padding:10px!important}.preparation .prep-record h2,.preparation .prep-rules h2,.preparation .prep-opponent h2{font-size:15px!important}.preparation .prep-record p,.preparation .prep-rules p,.preparation .prep-opponent p{font-size:8px!important}
+  dialog.archive-dialog .archive-paper{gap:14px!important;padding:20px 18px!important;min-height:245px!important}
+  dialog.archive-dialog .archive-page h3{font-size:18px!important}.archive-dialog .archive-page p{font-size:9px!important;line-height:1.65!important}.archive-dialog .archive-page-right h4{font-size:16px!important;margin-top:18px!important}.archive-dialog .archive-page button{font-size:9px!important;padding:7px 9px!important}
+  .preparation .prep-record{left:4%!important;top:31%!important;width:44%!important;height:23%!important;transform:rotate(-1.5deg)!important}
+  .preparation .prep-rules{left:52%!important;top:31%!important;width:44%!important;height:31%!important;transform:rotate(1deg)!important}
+  .preparation .prep-opponent{left:4%!important;right:auto!important;top:58%!important;width:44%!important;height:22%!important;transform:rotate(-1deg)!important}
+  .preparation .prep-record h2,.preparation .prep-rules h2,.preparation .prep-opponent h2{font-size:14px!important;margin-bottom:4px!important}
+  .preparation .prep-record p,.preparation .prep-rules p,.preparation .prep-opponent p{font-size:8px!important;line-height:1.45!important;margin:2px 0!important}
+  .preparation .prep-rules table{font-size:7px!important;line-height:1.1!important}
+  .preparation .prep-opponent .character-head{gap:5px!important;align-items:center!important}
+  .preparation .prep-opponent .character-head .portrait{width:36px!important;height:42px!important;object-fit:cover!important}
+  .preparation .prep-opponent .character-head h3{font-size:12px!important;margin:0!important}
+  .preparation .prep-opponent .character-head span{font-size:8px!important}
+  .preparation .prep-next{width:50%!important;bottom:4%!important;min-height:44px!important;font-size:11px!important}
+  dialog.archive-dialog .archive-open-trigger{top:58%!important;min-width:136px!important;min-height:62px!important;padding:10px 16px!important}
+  dialog.archive-dialog .archive-open-trigger span{font-size:16px!important}
+  dialog.archive-dialog .archive-open-trigger small{font-size:9px!important}
+  dialog.archive-dialog .archive-is-open .archive-index{position:relative!important;margin-top:5px!important;gap:7px!important}
+  dialog.archive-dialog .archive-room{padding:12px 8px 12px!important}
+  dialog.archive-dialog .archive-heading-wrap{padding:5px 0 7px!important;margin-bottom:2px!important}
+  dialog.archive-dialog .archive-heading-ornament{height:20px!important;margin-bottom:0!important}
+  dialog.archive-dialog .archive-heading{font-size:25px!important}
+  dialog.archive-dialog .archive-kicker{font-size:9px!important;letter-spacing:2px!important}
+  dialog.archive-dialog .archive-subtitle{font-size:11px!important;margin-top:5px!important}
+  dialog.archive-dialog .archive-stage{min-height:332px!important;margin-top:3px!important}
+  dialog.archive-dialog .archive-book-opening{width:300px!important;top:0!important}
+  dialog.archive-dialog .archive-paper{top:65px!important;width:286px!important;min-height:230px!important;padding:16px 14px!important;gap:9px!important}
+  dialog.archive-dialog .archive-page-left{padding-right:9px!important}
+  dialog.archive-dialog .archive-page-number{font-size:8px!important;letter-spacing:2px!important;margin-bottom:7px!important}
+  dialog.archive-dialog .archive-page h3{font-size:15px!important;margin-bottom:5px!important}
+  dialog.archive-dialog .archive-page small{font-size:7px!important;letter-spacing:1px!important}
+  dialog.archive-dialog .archive-page p{font-size:8px!important;line-height:1.45!important;margin:9px 0!important}
+  dialog.archive-dialog .archive-page button{font-size:7px!important;padding:6px 7px!important}
+  dialog.archive-dialog .archive-page-right h4{font-size:14px!important;margin-top:13px!important}
+  dialog.archive-dialog .archive-stamp{font-size:7px!important;padding:3px 5px!important}
+  dialog.archive-dialog .archive-rule-line{margin:11px 0 6px!important}
+  dialog.archive-dialog .archive-hand-note{font-size:8px!important}
+  dialog.archive-dialog .archive-page-mark{font-size:8px!important}
+}

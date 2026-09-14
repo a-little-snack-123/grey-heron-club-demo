@@ -1,0 +1,20 @@
+/* User reference, 2026-09-13: one thin pixel face for Chinese, Latin and digits. */
+@font-face {
+ font-family:'Heron Pixel';
+ src:url('../../public/fonts/chill-bitmap-16px.woff2') format('woff2');
+ font-style:normal;
+ font-weight:100 900;
+ font-display:swap;
+}
+:root {
+ --font-body:'Heron Pixel',monospace;
+ --font-display:'Heron Pixel',monospace;
+ --serif:'Heron Pixel',monospace;
+}
+/* Legacy pages contain font shorthands and local tokens. Keep the font uniform
+   without changing their existing layout or text hierarchy. */
+html body,html body *,html body *::before,html body *::after,
+#root,#root *,#root *::before,#root *::after {
+ font-family:'Heron Pixel',monospace!important;
+ font-synthesis:none;
+}

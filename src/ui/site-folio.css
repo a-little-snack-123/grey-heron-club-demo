@@ -1,0 +1,179 @@
+/* All remaining pages share the approved clean room, independent props and live ink. */
+/* Match the visible felt bounds; keep the front rim visible at every aspect ratio. */
+.club-stage3.object-scene{background-image:url('../../public/art/preparation-v2/room-perspective-v6.webp');background-position:center top;background-size:100% 100%;--desk-surface-start:.17;--desk-surface-end:.97}
+.club-stage3.folio-scene{padding-top:18dvh;padding-bottom:5dvh}
+.folio-scene .folio-heading h1{margin:2px 0}
+.folio-scene .folio-heading p{margin:0}
+.folio-scene .folio-heading{padding-left:24%}
+.folio-scene .open-ledger{width:min(1050px,calc((77dvh - 100px)*1527/876))}
+.folio-reveal .open-ledger{width:min(1050px,calc((77dvh - 165px)*1527/876))}
+.app-shell:has(#main-content>main.folio-scene)>.club-navigation{display:flex!important}
+.app-shell:has(#main-content>main.object-scene)>.club-navigation{display:flex!important}
+.app-shell:has(#main-content>main.folio-scene)>.club-navigation button{min-height:44px}
+.app-shell>.club-navigation,.folio-dialog-navigation{display:flex;justify-content:flex-end;gap:10px;position:fixed;top:12px;left:18vw;right:5vw;z-index:20;pointer-events:none}
+.app-shell>.club-navigation button,.folio-dialog-navigation button{appearance:none;pointer-events:auto;min-height:44px;padding:8px 12px!important;border:1px solid #574831!important;border-radius:3px;background:#2f2119!important;color:#efe6d4!important;font-size:14px!important;letter-spacing:0!important;box-shadow:inset 0 1px #836b4844,2px 3px 5px #0008!important}
+.app-shell>.club-navigation button:first-child{margin-right:0}
+.app-shell>.club-navigation button:hover,.folio-dialog-navigation button:hover{background:#3d2d1d!important}
+.app-shell>.club-navigation button:active,.folio-dialog-navigation button:active{transform:translateY(1px)}
+/* More paper area, instead of reducing the rule text to fit the old shallow slot. */
+.preparation-specimen .preparation-props{grid-template-columns:minmax(0,1fr) 220px;gap:24px;padding:21dvh 5vw 12dvh}
+.preparation-specimen .scene-object--book{width:min(100%,calc(67dvh*1527/876))}
+.preparation-specimen .scene-object--envelope{width:220px}
+.preparation-specimen .envelope-inscription b{font-size:23px}
+.preparation-specimen .envelope-inscription small{font-size:12px}
+.preparation-specimen .book-page{gap:8px}
+.folio-play .seal-choice-note .object-sprite{object-fit:fill}
+.folio-play .seal-choice-note .note-inscription{padding:18px 23% 16px 9%}
+.folio-play .seal-choice-note .choice-title{flex-wrap:wrap;gap:4px 12px}
+.folio-play .seal-choice-note .choice-title em{margin-left:0}
+@media(min-width:701px) and (max-width:1100px){
+ .club-stage3.preparation-specimen{height:auto;min-height:100dvh}
+ .preparation-specimen .preparation-props{height:auto;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;padding:170px 32px 24px;gap:20px}
+ .preparation-specimen .scene-object--book{width:min(100%,1000px)}
+ .preparation-specimen .scene-object--envelope{width:260px;justify-self:end;margin:0}
+}
+.app-shell:has(#main-content>main.folio-entrance)>.club-navigation{display:none!important}
+.app-shell:has(dialog[open])>.club-navigation{display:none!important}
+.folio-selection .native-members{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;align-items:end;max-width:1160px;width:100%;margin:auto auto 0}
+.folio-selection .native-member-card{aspect-ratio:4/5}
+.folio-selection .visiting-inscription{height:100%;display:flex;flex-direction:column;align-items:center;text-align:center;padding:9% 9% 10%;gap:7px}
+.folio-selection .visiting-inscription h2{font-size:25px;line-height:1.2;font-weight:400}
+.folio-selection .visiting-inscription small{font-size:14px;line-height:1.35}
+.folio-selection .visiting-inscription p{font-size:17px;line-height:1.4;margin:0;text-align:left}
+.folio-selection .native-pick-label{margin-top:auto;font-size:15px;text-decoration:underline;text-underline-offset:4px}
+.native-portrait{display:block;flex:none;background:none;mask-image:radial-gradient(ellipse 38% 44% at 54% 45%,#000 92%,transparent 100%);overflow:hidden}
+.native-portrait img{display:block;max-width:none;image-rendering:pixelated;object-fit:contain;filter:none;transform:none}
+.folio-selection .object-hit[aria-pressed=true]:not(:active){transform:translateY(-6px) scale(1.02)}
+.folio-selection .object-hit[aria-pressed=true]:not(:active)+.object-text{top:-6px}
+.folio-selection .object-hit[aria-pressed=true] .object-material{filter:brightness(1) drop-shadow(5px 8px 3px #0009) drop-shadow(0 0 14px #e8a33d88)}
+.folio-selection .object-hit[aria-disabled=true] .object-material{filter:brightness(.82) grayscale(.5) drop-shadow(5px 8px 3px #0009)}
+.folio-selection .object-hit[aria-disabled=true]+.object-text{color:#30271b}
+.folio-selection .selection-desk-footer{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:10px}
+.folio-selection .selection-note{font-size:16px;color:#efe6d4}
+.folio-selection .table-settings{width:440px;min-height:106px}
+.folio-selection .table-settings .note-inscription{padding:18px 28px;gap:8px}
+.folio-selection .table-settings label{display:flex;align-items:center;gap:8px;font-size:16px}
+.folio-selection .table-settings select{border:0;border-bottom:1px solid #574831;background:transparent;color:#30271b;min-height:36px;max-width:100%}
+.folio-selection .table-settings input{accent-color:#574831}
+.folio-selection .confirm-note{width:260px;height:92px}
+.folio-selection .confirm-note .note-inscription{padding:16px 20px;gap:4px;font-size:20px}
+.folio-selection .confirm-note small{font-size:14px}
+.folio-lobby .lobby-desk{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,25%);align-items:end;gap:24px;margin-top:auto;min-height:0}
+.folio-lobby .open-ledger{width:min(100%,calc((77dvh - 155px)*1527/876));margin:0}
+.folio-lobby .scene-object--envelope{width:100%;margin-bottom:24px}
+.folio-lobby .envelope-inscription b{font-size:24px}
+.folio-lobby .folio-leaf{gap:8px}
+.folio-lobby .folio-index{gap:8px}
+.folio-lobby .folio-index button{flex-direction:column;align-items:start;gap:2px;padding:8px 0}
+.folio-lobby .folio-index button small{font-size:12px}
+.folio-lobby .lobby-meta{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:15px}
+.folio-lobby .folio-footer{margin-top:4px}
+.folio-dossier .leaf-scroll,.folio-members .leaf-scroll,.folio-learning .leaf-scroll,.folio-rules .leaf-scroll{scrollbar-gutter:stable}
+.folio-scene .leaf-scroll-hint{flex:none;font-size:14px!important;line-height:1.25;color:#574831;border-top:1px solid #927b58;padding-top:4px;margin:0;white-space:nowrap}
+.folio-scene .ink-tabs{display:flex;gap:12px;flex-wrap:wrap;color:#30271b}
+.folio-scene .ink-tabs button{background:none;border:0;min-height:44px;padding:4px 0;color:inherit;font:inherit}
+.folio-scene .ink-tabs button[aria-pressed=true]{text-decoration:underline;text-underline-offset:5px}
+.folio-members .member-book-tabs{display:flex;gap:24px;margin-left:24%;color:#efe6d4}
+.folio-members .member-book-tabs button{min-height:44px;background:none;border:0;padding:4px 0}
+.folio-members .member-book-tabs button[aria-pressed=true]{text-decoration:underline;text-underline-offset:6px}
+.folio-members .open-ledger{width:min(1050px,calc((77dvh - 155px)*1527/876))}
+.folio-members .folio-leaf{gap:8px}
+.folio-rules .rules{font-size:17px;display:grid;gap:12px}
+.folio-rules .rules table{border-collapse:collapse;width:100%;font-size:17px;color:#30271b}
+.folio-rules .rules caption{text-align:left;margin-bottom:8px}
+.folio-rules .rules th,.folio-rules .rules td{padding:6px 4px;background:none;border:0;border-bottom:1px solid #927b58;color:inherit;white-space:nowrap}
+.folio-learning .open-ledger{width:min(1050px,calc((77dvh - 190px)*1527/876))}
+.folio-learning .folio-reveal-actions{display:flex;gap:24px;justify-content:center}
+.folio-learning .ink-tabs{gap:4px 16px}
+.folio-learning .ink-tabs button{font-size:16px}
+.folio-learning .folio-trial{display:grid;gap:16px}
+.folio-learning .folio-trial input{width:100%;accent-color:#574831;min-height:32px}
+.folio-learning .folio-trial dl{display:flex;gap:36px;margin:0}
+.folio-learning .folio-trial dd{font-size:28px}
+.error-banner{background:transparent;color:#30271b;border:0;box-shadow:none;padding:20px 26px;isolation:isolate;font-size:16px}
+.error-banner::before{content:'';position:absolute;inset:0;z-index:-1;background:url('../../public/art/folio-v3/note.webp') center/100% 100% no-repeat;filter:drop-shadow(4px 8px 6px #0009)}
+.error-banner button{background:none;border:0;text-decoration:underline;min-height:44px}
+.folio-reveal .folio-analysis-tabs{gap:12px;flex-wrap:wrap}
+.folio-reveal .folio-analysis-tabs button{font-size:16px;min-width:44px}
+.folio-reveal .folio-round-tabs button{min-width:44px}
+/* Selected paper rises independently; its ink stays at native resolution. */
+.folio-selection .object-hit[aria-pressed=true]:not(:active),.folio-play .choice-note .object-hit[aria-pressed=true]:not(:active){transform:translateY(-16px) scale(1.07)}
+.folio-selection .object-hit[aria-pressed=true]:not(:active)+.object-text,.folio-play .choice-note .object-hit[aria-pressed=true]:not(:active)+.object-text{top:-16px}
+.folio-selection .object-hit[aria-pressed=true] .object-material,.folio-play .choice-note .object-hit[aria-pressed=true] .object-material{filter:brightness(1.2) contrast(1.05) drop-shadow(5px 14px 9px #0009) drop-shadow(0 0 16px rgba(232,163,61,.72)) drop-shadow(0 0 44px rgba(232,163,61,.42))}
+@media(min-width:701px){
+ .folio-play .talk-choices{grid-template-columns:repeat(4,minmax(0,1fr));max-width:none}
+ .folio-play .talk-choices .choice-note{height:138px}
+ .folio-play .talk-choices .choice-title{flex-wrap:wrap;gap:4px 8px}
+ .folio-play .talk-choices .choice-title em{margin-left:0}
+ .folio-selection .native-member-card{aspect-ratio:auto;min-height:300px}
+ .folio-selection .native-member-card .object-sprite{object-fit:fill}
+ .folio-selection .visiting-inscription{padding:18px 9%;gap:6px}
+ .folio-selection .native-members{align-items:stretch}
+ .folio-selection .confirm-note{height:72px}
+ .folio-selection .table-settings{width:600px;height:80px;min-height:80px}
+ .folio-selection .table-settings .note-inscription{flex-direction:row;align-items:center;justify-content:space-between;padding:16px 24px}
+}
+@media(max-width:700px){
+ .club-stage3.object-scene{background-image:linear-gradient(180deg,transparent 8%,#09110c80 12%,#09110c80 28%,transparent 48%),url('../../public/art/preparation-v2/room-perspective-mobile-v5.webp');background-size:100% 100%;background-position:center top;background-attachment:scroll;--desk-surface-start:.12;--desk-surface-end:.925}
+ .club-stage3.folio-scene{padding-top:14dvh;padding-bottom:9dvh}
+ .club-stage3.folio-selection{padding-top:12dvh;gap:10px}
+ .folio-play .seal-choice-note{width:calc(100% - 16px);justify-self:center}
+ .folio-scene .folio-heading{padding-left:0}
+ .app-shell>.club-navigation,.folio-dialog-navigation{left:20px!important;right:20px!important;top:10px;gap:6px!important;justify-content:space-between}
+ .app-shell>.club-navigation button,.folio-dialog-navigation button{padding:7px 3px!important;white-space:nowrap}
+ .preparation-specimen .preparation-props{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto;padding:14dvh 20px 9dvh;gap:18px}
+ .preparation-specimen .scene-object--book{width:min(350px,100%)}
+ .preparation-specimen .scene-object--envelope{width:260px}
+ .preparation-specimen .envelope-inscription b{font-size:26px}
+ .preparation-specimen .envelope-inscription small{font-size:14px}
+ .folio-learning .open-ledger{width:350px}
+ .folio-reveal .folio-analysis-tabs{gap:8px}
+ .folio-reveal .folio-analysis-tabs button{font-size:14px}
+ .folio-play .folio-turn{gap:24px}
+ .folio-play .talk-choices .choice-note{height:104px}
+ .folio-play.phase-choose .folio-choices{grid-template-columns:minmax(0,1fr);gap:24px}
+ .folio-play .seal-choice-note{height:96px}
+ .folio-play .seal-choice-note .note-inscription{padding:14px 23% 12px 9%}
+ .app-shell:has(.folio-scene)>.club-navigation button{font-size:14px}
+ .folio-scene .folio-leaf small,.folio-scene .note-inscription small,.folio-play .choice-title em,.folio-play .folio-confirm>small,.folio-play .folio-action-heading small{font-size:14px}
+ .folio-scene .score-note .note-inscription{padding:14px 12px}
+ .folio-scene .score-numbers span{font-size:14px}
+ .folio-learning .folio-reveal-actions{gap:12px}
+ .folio-learning .confirm-note{width:calc(50% - 6px);height:64px}
+ .folio-learning .confirm-note .note-inscription{font-size:17px;padding:12px}
+ .folio-learning .folio-leaf{gap:8px}
+ .folio-learning .ink-tabs{gap:0 8px}
+ .folio-learning .ink-tabs button{font-size:15px}
+ .folio-members .member-book-tabs{margin-left:0;justify-content:space-between;gap:8px}
+ .folio-members .open-ledger{width:350px}
+ .folio-rules .rules{font-size:16px}
+ .folio-rules .rules table{font-size:15px}
+ .folio-selection .native-members{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 16px;margin-top:14px}
+ .folio-selection .native-member-card{aspect-ratio:auto;min-height:230px}
+ .folio-selection .native-member-card .object-sprite{object-fit:fill}
+ .folio-selection .visiting-inscription{padding:12px 13px;gap:5px}
+ .folio-selection .native-portrait{zoom:.5}
+ .folio-selection .visiting-inscription h2{font-size:22px}
+ .folio-selection .visiting-inscription small{font-size:14px}
+ .folio-selection .visiting-inscription p{font-size:14px;line-height:1.4}
+ .folio-selection .native-pick-label{font-size:14px}
+ .folio-selection .selection-desk-footer{flex-direction:column;gap:14px}
+ .folio-selection .table-settings{width:100%;min-height:104px}
+ .folio-selection .table-settings .note-inscription{padding:16px 24px}
+ .folio-selection .table-settings label{font-size:15px}
+ .folio-selection .selection-note{font-size:14px;margin:0}
+ .folio-selection .confirm-note{height:68px}
+ .folio-selection .selection-desk-footer{gap:8px}
+ .folio-selection .selection-desk-footer .note-inscription{padding-top:12px;padding-bottom:12px}
+ .folio-selection .selection-desk-footer:has(.table-settings){display:grid;grid-template-columns:minmax(0,1fr) 128px;gap:10px}
+ .folio-selection .table-settings .note-inscription{padding:12px 14px}
+ .folio-selection .table-settings label{font-size:14px;flex-wrap:wrap;gap:4px}
+ .folio-selection .selection-desk-footer:has(.table-settings) .confirm-note{width:128px;height:84px}
+ .folio-selection .selection-desk-footer:has(.table-settings) .confirm-note .note-inscription{padding:12px 6px;font-size:17px}
+ .folio-lobby .lobby-desk{grid-template-columns:minmax(0,1fr);gap:24px;margin-top:12px;justify-items:center}
+ .folio-lobby .open-ledger{width:350px;max-width:100%}
+ .folio-lobby .scene-object--envelope{width:260px;margin:0}
+ .folio-lobby .folio-leaf{gap:4px}
+ .folio-lobby .folio-leaf p{margin-bottom:6px;line-height:1.4}
+ .folio-lobby .folio-footer{margin-top:12px}
+}
