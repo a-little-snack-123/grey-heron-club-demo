@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-14 · Learning experience emphasis
+
+- Added the author's business-study background and motivation to make game theory approachable and enjoyable through play.
+- Moved the review and learning section ahead of the character section, and aligned resume/interview copy.
+- Removed the public copy-download link from the project page.
+
 ## 2026-09-14 · Project presentation update
 
 - Put product decisions, visual direction and author contribution earlier in the project page.
